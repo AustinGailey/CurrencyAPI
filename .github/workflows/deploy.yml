@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -37,7 +37,7 @@ jobs:
       - name: Create archive of dependencies
         run: /
           cd ./venv/lib/python3.7/site-packages
-          zip -r9 ../../../../currency_api.zip
+          zip -r9 ../../../../currency_api.zip .
       
       - name: Add API files to Zip file
         run: cd ./currency_api && zip -g ../currency_api.zip -r .
