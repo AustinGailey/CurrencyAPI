@@ -1,0 +1,318 @@
+{
+	"info": {
+		"_postman_id": "408527f5-ec35-4bee-9cce-1d49b02a8709",
+		"name": "Currency API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Root",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://0nxiv8tpyf.execute-api.us-west-2.amazonaws.com/dev/",
+					"protocol": "https",
+					"host": [
+						"0nxiv8tpyf",
+						"execute-api",
+						"us-west-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://0nxiv8tpyf.execute-api.us-west-2.amazonaws.com/dev/health",
+					"protocol": "https",
+					"host": [
+						"0nxiv8tpyf",
+						"execute-api",
+						"us-west-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get USD Currency",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response should be okay to process\", function () {",
+							"    const responseJson = pm.response.json();",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.have.jsonBody(\"data\");",
+							"    pm.response.to.not.have.jsonBody(\"errors\");",
+							"    pm.expect(responseJson.data.currency).to.eql('USD');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://0nxiv8tpyf.execute-api.us-west-2.amazonaws.com/dev/USD",
+					"protocol": "https",
+					"host": [
+						"0nxiv8tpyf",
+						"execute-api",
+						"us-west-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"USD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get JPY Currency",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response should be okay to process\", function () {",
+							"    const responseJson = pm.response.json();",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.have.jsonBody(\"data\");",
+							"    pm.response.to.not.have.jsonBody(\"errors\");",
+							"    pm.expect(responseJson.data.currency).to.eql('JPY');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://0nxiv8tpyf.execute-api.us-west-2.amazonaws.com/dev/JPY",
+					"protocol": "https",
+					"host": [
+						"0nxiv8tpyf",
+						"execute-api",
+						"us-west-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"JPY"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get EUR Currency",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response should be okay to process\", function () {",
+							"    const responseJson = pm.response.json();",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.have.jsonBody(\"data\");",
+							"    pm.response.to.not.have.jsonBody(\"errors\");",
+							"    pm.expect(responseJson.data.currency).to.eql('EUR');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://0nxiv8tpyf.execute-api.us-west-2.amazonaws.com/dev/EUR",
+					"protocol": "https",
+					"host": [
+						"0nxiv8tpyf",
+						"execute-api",
+						"us-west-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"EUR"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get GBP Currency",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response should be okay to process\", function () {",
+							"    const responseJson = pm.response.json();",
+							"    pm.response.to.not.be.error;",
+							"    pm.response.to.have.jsonBody(\"data\");",
+							"    pm.response.to.not.have.jsonBody(\"errors\");",
+							"    pm.expect(responseJson.data.currency).to.eql('GBP');",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://0nxiv8tpyf.execute-api.us-west-2.amazonaws.com/dev/GBP",
+					"protocol": "https",
+					"host": [
+						"0nxiv8tpyf",
+						"execute-api",
+						"us-west-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"GBP"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bad Currency Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response should be okay to process\", function () {",
+							"    pm.response.to.have.jsonBody(\"errors\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://0nxiv8tpyf.execute-api.us-west-2.amazonaws.com/dev/XXX",
+					"protocol": "https",
+					"host": [
+						"0nxiv8tpyf",
+						"execute-api",
+						"us-west-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"XXX"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Non-Existent Route",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"response should be okay to process\", function () {",
+							"    pm.response.to.have.jsonBody(\"message\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://0nxiv8tpyf.execute-api.us-west-2.amazonaws.com/dev/health/X",
+					"protocol": "https",
+					"host": [
+						"0nxiv8tpyf",
+						"execute-api",
+						"us-west-2",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"health",
+						"X"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
