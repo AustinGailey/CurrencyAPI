@@ -86,9 +86,8 @@ jobs:
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     steps:
       - name: Run Postman API Tests
-        run: |
-          pip install npm
-          npm -g install newman
-          cd ~/api/tests
-          newman run postman_tests.json
+        - uses: actions/checkout@master
+        - uses: matt-ball/newman-action@master  
+        with:
+          collection: tests/collection.json
 
