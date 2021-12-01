@@ -86,5 +86,6 @@ jobs:
         run: |
           pip install npm
           npm -g install newman
-          newman run tests/postman_tests.json
+          cd tests
+          newman run postman_tests.json
 
