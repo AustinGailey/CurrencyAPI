@@ -84,5 +84,7 @@ jobs:
     steps:
       - name: Run Postman API Tests
         run: |
+          pip install npm
+          npm -g install newman
           newman run ./tests/postman_tests.json
 
