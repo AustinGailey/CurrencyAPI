@@ -86,8 +86,7 @@ jobs:
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     steps:
       - name: Run Postman API Tests
-        - uses: actions/checkout@master
-        - uses: matt-ball/newman-action@master  
+      - uses: actions/checkout@master
         with:
           collection: tests/collection.json
 
