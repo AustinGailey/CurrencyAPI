@@ -88,5 +88,5 @@ jobs:
       - name: Run Postman API Tests
         uses: actions/checkout@master
         with:
-          collection: tests/collection.json
+          collection: tests/postman_tests.json
 
