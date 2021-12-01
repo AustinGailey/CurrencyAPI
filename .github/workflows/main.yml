@@ -85,8 +85,16 @@ jobs:
     needs: [CD]
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     steps:
-      - name: Run Postman API Tests
-        uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Run API Tests
+        id: run-newman
+        uses: actions/newman-action@v1
         with:
           collection: tests/postman_tests.json
+          reporters: cli
+
+      - name: Output summary to console
+        run: echo ${{ steps.run-newman.outputs.summary }}
 
