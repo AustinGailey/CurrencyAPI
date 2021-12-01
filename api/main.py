@@ -1,12 +1,6 @@
-# from fastapi import FastAPI
-# import requests
-
-# app = FastAPI()
-
-
-
 from mangum import Mangum
 from fastapi import FastAPI
+import requests
 
 app = FastAPI()
 
