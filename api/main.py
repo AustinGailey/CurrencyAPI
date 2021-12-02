@@ -8,9 +8,8 @@ app = FastAPI()
 @app.get("/health", status_code=200)
 def get_health():
     cloudwatch = boto3.client('cloudwatch')
-    paginator = cloudwatch.get_paginator('list_metrics')
-    response = paginator.paginate(Dimensions=[{'Name': 'LogGroupName'}],MetricName='IncomingLogEvents',Namespace='AWS/Logs')
-    return response['metrics']
+    metric = cloudwatch.Metric('AWS/ApiGateway','Amazon API Gateway')
+    return metric
 
 
 @app.get("/{currency}")
