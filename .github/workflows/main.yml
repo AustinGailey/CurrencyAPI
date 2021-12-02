@@ -49,6 +49,14 @@ jobs:
           name: api
           path: api.zip
 
+      - name: Post to a Slack channel
+        uses: slackapi/slack-github-action@v1.16.0
+        with:
+          channel-id: C02PB8E6XRQ
+          slack-message: "Ran CI"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
+
   CD:
     runs-on: ubuntu-latest
     needs: [CI]
@@ -79,6 +87,14 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
 
+      - name: Post to a Slack channel
+        uses: slackapi/slack-github-action@v1.16.0
+        with:
+          channel-id: C02PB8E6XRQ
+          slack-message: "Ran CD"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
+
   API-TESTS:
     runs-on: ubuntu-latest
     needs: [CD]
@@ -101,7 +117,7 @@ jobs:
         uses: slackapi/slack-github-action@v1.16.0
         with:
           channel-id: C02PB8E6XRQ
-          slack-message: ${{ steps.run-newman.outputs }}
+          slack-message: "Ran API-TESTS"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
 
