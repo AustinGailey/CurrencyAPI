@@ -8,6 +8,7 @@ on:
 jobs:
 
   MESSAGING:
+    runs-on: ubuntu-latest
     steps:
       - name: Invoke deployment hook
         uses: distributhor/workflow-webhook@v2
