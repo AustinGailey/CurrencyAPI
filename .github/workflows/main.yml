@@ -16,13 +16,13 @@ jobs:
       #     webhook_url: ${{ secrets.SLACK_WEBHOOK }}
       #     webhook_secret: ${{ secrets.SLACK_WEBHOOK_SECRET }}
       - name: Post to a Slack channel
-      id: slack
-      uses: slackapi/slack-github-action@v1.16.0
-      with:
-        channel-id: C02PB8E6XRQ
-        slack-message: 'posting from a github action!'
-      env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
+        id: slack
+        uses: slackapi/slack-github-action@v1.16.0
+        with:
+          channel-id: C02PB8E6XRQ
+          slack-message: 'posting from a github action!'
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
 
 
   CI:
