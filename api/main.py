@@ -10,7 +10,7 @@ def get_health():
     cloudwatch = boto3.client('cloudwatch')
     paginator = cloudwatch.get_paginator('list_metrics')
     response = paginator.paginate(Dimensions=[{'Name': 'LogGroupName'}],MetricName='IncomingLogEvents',Namespace='AWS/Logs')
-    return response
+    return response['metrics']
 
 
 @app.get("/{currency}")
@@ -21,6 +21,6 @@ async def get_currency(currency):
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Currency API"}
 
 handler = Mangum(app=app)
