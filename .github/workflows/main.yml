@@ -98,13 +98,10 @@ jobs:
         run: echo ${{ steps.run-newman.outputs.summary }}
 
       - name: Post to a Slack channel
-        id: slack
         uses: slackapi/slack-github-action@v1.16.0
         with:
           channel-id: C02PB8E6XRQ
-          slack-message: {
-            "text": ${{ steps.run-newman.outputs }}
-          }
+          slack-message: ${{ steps.run-newman.outputs }}
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN }}
 
