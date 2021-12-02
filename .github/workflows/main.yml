@@ -10,9 +10,9 @@ jobs:
   MESSAGING:
     steps:
       - name: Invoke deployment hook
-      uses: distributhor/workflow-webhook@v2
-      env:
-        webhook_url: ${{ secrets.SLACK_WEBHOOK }}
+        uses: distributhor/workflow-webhook@v2
+        env:
+          webhook_url: ${{ secrets.SLACK_WEBHOOK }}
 
   CI:
     runs-on: ubuntu-latest
