@@ -1,12 +1,16 @@
 from mangum import Mangum
 from fastapi import FastAPI
 import requests
+import boto3
 
 app = FastAPI()
 
 @app.get("/health", status_code=200)
 def get_health():
-    return {"status_code": "200"}
+    cloudwatch = boto3.client('cloudwatch')
+    paginator = cloudwatch.get_paginator('list_metrics')
+    response = paginator.paginate(Dimensions=[{'Name': 'LogGroupName'}],MetricName='IncomingLogEvents',Namespace='AWS/Logs')
+    return response
 
 
 @app.get("/{currency}")
