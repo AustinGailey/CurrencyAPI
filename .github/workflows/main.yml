@@ -90,7 +90,7 @@ jobs:
 
       - name: Run API Tests
         id: run-newman
-        uses: actions/newman-action@v1
+        uses: anthonyvscode/newman-action@v1
         with:
           collection: tests/postman_tests.json
           reporters: cli
