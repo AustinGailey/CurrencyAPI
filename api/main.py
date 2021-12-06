@@ -19,7 +19,7 @@ async def get_currency(currency):
     response = requests.get(url)
     return response.json()
 
-@app.get("/")
+@app.get("/", status_code=200)
 async def root():
     return {"message": "Currency API"}
 
